@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class TestKafkaListener {
 
-    @KafkaListener(id = "first", groupId = "crx", topicPartitions = @TopicPartition(topic = "TestTopic", partitions = "0"))
+    @KafkaListener(topicPartitions = @TopicPartition(topic = "TestTopic", partitions = "0"))
     public void handleFirstPartition(String message) {
         log.info("received partition 0: " + message);
     }
 
-    @KafkaListener(id = "second", groupId = "crx", topicPartitions = @TopicPartition(topic = "TestTopic", partitions = "1"))
+    @KafkaListener(topicPartitions = @TopicPartition(topic = "TestTopic", partitions = "1"))
     public void handleSecondPartition(String message) {
         log.info("received partition 1: " + message);
     }

@@ -24,11 +24,11 @@ class DemoApplicationTests {
     @Test
     void testListeners() throws InterruptedException {
 
-        ProducerRecord<String, String> record = new ProducerRecord<>("TestTopic", 0, null, "zero");
-        kafkaTemplate.send(record);
+        ProducerRecord<String, String> firstRecord = new ProducerRecord<>("TestTopic", 0, null, "zero");
+        kafkaTemplate.send(firstRecord);
 
-        ProducerRecord<String, String> record1 = new ProducerRecord<>("TestTopic", 1, null, "one");
-        kafkaTemplate.send(record1);
+        ProducerRecord<String, String> secondRecord = new ProducerRecord<>("TestTopic", 1, null, "one");
+        kafkaTemplate.send(secondRecord);
 
         Thread.sleep(10000);
     }
